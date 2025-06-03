@@ -1,0 +1,67 @@
+.paper {
+  --duration: 2s;
+  --size: 200px;
+  --half-size: calc(var(--size) / 2);
+  position: relative;
+  display: grid;
+  place-content: center;
+  width: var(--size);
+  height: var(--size);
+  box-shadow: 0 0 1rem hsla(0, 0%, 0%, 0.3);
+
+  background: linear-gradient(to bottom, white 19px, deepskyblue 20px);
+  background-size: 100% 20px;
+  background-repeat: repeat-y;
+}
+
+.drawn-path,
+.pencil {
+  position: absolute;
+  grid-column: 1;
+  grid-row: 1;
+  transform: translate(
+    calc(-1 * var(--half-size)),
+    calc(-1 * var(--half-size))
+  );
+}
+
+.drawn-path {
+  width: var(--size);
+  height: var(--size);
+  & path {
+    fill: none;
+    stroke: gray;
+    stroke-width: 2;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: draw var(--duration) linear infinite;
+  }
+}
+
+.pencil {
+  width: 24px;
+  height: 24px;
+  /* background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAYCAYAAADH2bwQAAAAAXNSR0IArs4c6QAAAdRJREFUOE9tkjtvE0EUhb8hfmQNHW4WEaREonRFg4AKiU0BLYVdIGio+SOho+EPRNBQh4bSQQIa0yVeOyKerJNgB+1slLWJL7qzxgTBSqt9nDPncWfMTCQ0G22LgGQTTDaBbMq30RE33jytGxEJZaNtDXhAXEEajI9Y2VTCTEJebltUQle7KWQ5++NjVjaf1c3CAlNYnCopZzA65rpXEAnjOLZBLcCljjRNcc5hraXVbBYWca9rg9plMiU4h3Mpg/0BzVbrgkJQ80ChkGLtAc2WKmiLYWRNuQr5EMktZpLQ311m9WE2b3H4wEqpiskTyA8gT+jHQUHwLQ4jy9IyTBQs7n43YPWRKsgslOG6NaWKByRPCotuwNofi8iiGSYJnFmfpd/VDKdFSIaRxSskhc1ZQi8OWPvLYt6CXBXU4mKLbmj5meh2La7vY6jfYd5i95onCIIRwMDoBK4qYdGiXPHe/8zBb7fOoVSFadFC8iF7iwzawg+q7AHjhzWv+b8Wv/eit6M1Xd1ooJ23d6Pzc7b0HREwhqVLsn7zcfu9P4oKdN692DLGRPp58mPy4d6TV/f1f0EAGo3GLRE+6dm8Uqne3v7y+aOCC8Kc9FyfXzud1+Lt4BfcN1azblSuCgAAAABJRU5ErkJggg=="); */
+  /* background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAm5JREFUSEuVVr9v00AY/a4+/wikgixVi0SVMjBVgiVSKRIDEkEdYIsopExIHQxMsCKE+BOKM4DYAgzZYEAUsaFEDDCxsLRCQgkCqUhFqpzYZ6Ozz/Gd7+yaGxJLvvt+vPe+d0ZQdiEACAHYX3Qqek5/ppGye5Qv0ghiBfzhMrWh9ICYF0FIC07Xf0Tmm6LPysW3nyYTs5SFiwdTBFlKjUDqjPKw9dIhtVkdb1zZzOIdd6AgsBS+ANB90nl9vba4hmqzGPb2nyE+CQvNYolZJG4UHLx4/riLq6fbJ+fmP68M98+gvb9P0d0bt3M5KCO7pLPRoOlgDdZ23E3t+89w0fv1+037jn012zlHcr5Msm9ocEPzbdMgcDA2dt9/vdBv33qwIUDNquVkqtC7Iudw0HQsjdiG4cPEwzD2tc7Cue0YFgVxJWSaUjT62HyFtXC9Yk1g7GGYsODiVMuFKvNm5TjqU8xDG6EAgmAGSIiiypPDalFQWWeHVfIWBMPBJcfEvm3qBA5cHQIy050/v32TH3PVfFD9xxwUAEgrNzGxDT3G3PW1zglWeRHuCR/coMk2MOw3HQP7tmUQcD0NJj6OgssOKpmGMLyiVbC+d9496laPf1k9Yv5Z8jydJugsrDLMEwlODVFtIQn5EsmtVkubq8KHe9fOLh099okE4L7lCS22ERmJrD9BvV63rErl28WV5d3768s/Tl1+yIYoH4o8Z8+dZJqk0Wh4vV6PFAqh0C1VMs2ZxlgV5XTDS1aeAxYo2nRI6XkXjpxAsTPvFssbLqm3qdIkiuUbSEFtBkhxB999rtnxlabfK4dYujQfAP8AX40bLiWw3jYAAAAASUVORK5CYII="); */
+  /* background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAsNJREFUSEuFVU9o01Ac/l6SNsnabaLIpowZZycelA0PerQyh7ijIDjQYTKwB5FJ0csEFcSdPFiQiVVb2V28eZTcPNWLIIgwBHHgFMfKXBuXP5I2aV/yXrpCm/Tl5fv93vf7ft+PwP8QAF7rp/U3WIhfgmexC+c1eof/OArKh+HsISDwOiklvUYFiG5hEmNOydnP2UPote49Db9LYJ/Y0oouLMxVQ5ZpnMQTcEpBL3WiNkor80om8xJZtUxmZwrRWrbLyClm8gnompVKT/ShgYEbl/qGJ0h/n0Tq22Vy+UIhzkonAL/g/GBr73KLH/7MF4TMsdGhwcHaqfXmhPh3W3K2Goa0cLUaqjFSA0YJHGx/yTUVHYpTcWVhtbb1QvrxOztqbWzWLtbFZ+lbc6/oRHvXIOCPlqNtpnRRRgWKCygOnG159e3n+9L3X8qDYrHYyjyuQI6E+d3jmaruyXaFBOCwRKAh4OeGdnd45utS2LCthAIIttESuto2FV2U3ApED8jagE2ApgjHEg0p3ww4b+dPn7hdgyTyg2CeKbc4h+DBEwDig7sCvH/EEGhwKus2ph8sTlosmG1KuiCTClEc+Lx7mykQh8DZ8TNvdNTCSzOETqyB56tFdipQXUB2EHIOSzRI3qoyoBx/oU4QcBdsqr8/udivfnoUqgVNAf7XsaSA8yi5SabKddOHt6+Vr0yPnz+4b9lOZ9bGYLXB0ZQMId+ohvzSJ2Bqyaqo68jnpqZPHB3Z8/TO7KR2YO+ynbbXx1wLhpTfodQSdfAksbBFJoB2SFNUVf1y9vTxb36Q/ak3z7NTH5ci4malx7EcIEGmwGFNU47kcuNnJkdu3nv8+npk4PWUNR2HJ1PO0Og1rXgHiTt08kSJ0tztUmZK9RhKfGdImgdMq3J7KGIVTCfTGAl2zbOWOGjUKhgqWMvdza/4XU3wH2oZKzEJAPXeAAAAAElFTkSuQmCC"); */
+  /* background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAtZJREFUSEuNVUtME1EUPW9m2hn6QUTRaiK/uoDESIzExJU1khhYmhjcYJwhoQtj/K3EDRtYQ4waq06NrEyMrIw7LSzcwUbjwigrMSgGkU8/dN6M6Uxb3vzazmra++ace8899z6C0kMAGOZb+WH/cAXL5/3POCMeoH4YBAQGDBe2RxIV1L2Qx8dsUR7vjfCUznhI5FGBHxkBjOlZmdwcSbsFJiBmFo3I7CKwPspNvxyVIqFniIRS5MpQ0pmvVYFnF2roU05oemZGjkWbr18Ox/pINCSQrWyKDA8m2aTdBOWP61X28+3x8Y/ro0k+3NN+eF/L4pnfuT5+OyvQnZwiOOSyp+onF3PKmJdkiFSlIre8tP1UWPkTbS/83Vi8tMk/Dt66+ry2TT1SZ52mZQSZD0JFE4Uh6dCz4vLclwnhx5o4cfvunXS1oWUcRiJ/L1ecZnyQZEOkKpF0QKJAgQeyHH5tdNyPDX2b8htTz246G1XMSDIv6Cp4A4hogEZg5HnoBV4REoX03gDaE/W1KctqZCQZElXBGQAHExw6B+wShZzPm7KYBKwbGbPU3D9aJiDzIlSIFGjSgX8BgBLQIqcIiXx1uFxmrxDUWmtm5iJVTeAgBXY5IMcDu7xCznmBW2PmrKa6Kli3bL4/NR5t+jRpNrPU1DwH5HnQkuamLB4j6rGVrR44RPqcGkmFO3ouHj34SAuGVrpNt1gECmlAFlYuG0ElsDiZeC1E9rc19/R3Hml9qInaWjctQBESxbSfmf2ktq2KEsGN4cH4tZM7XwHCCeHWhebe051tgTdPIheWpkqlsjI6bim71LZBY+gHBgaUFslI3jtb7IfBzYmHjq2fGJsds6qrM4y1bWpF4/H4QldX14veA4H5B6/efbeDOobIZ9U721/9HYvF2lZXV9dqLGpbyG/j+hCwe9qDwhW2X7G1mu9/3XiAuhpbp1zLRXUumUYlc+sH/AclPS4tprEm3wAAAABJRU5ErkJggg=="); */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAt9JREFUSEuNVktPE1EYPXc6zFigRWmIBRJCWyOaGInvuBAwwbgFY1zaBhdEDGyNe/kDoKi4sLN2UWNcaFxA6lLrwsSFUUmMSDGN0ZAwtsN0xsyjnXu5d4qTNL1zH9/jfOd8dwiaDwFgC97Y+WC/P3KX6T277ASv4ZvCgqDnCWwqPPYEEBakP/8/runM6KAJnSGXrRgPdpYAdvLBI1K+Oc0sUME1wXTT3APy3XCZ/fe1SDJ6Hf2dy+T5NdcJk3EQtcCyACLXgT+/sLiY75Xjx668bB+W+qIyfuhNJ94e4v75B8Ks0WwJ4tdXEoXXP2+fRHRooEeJlc49rAxLG7qMdX2ZlG/5cDUccDachQZc/NgqKnmoVtZSI2ulrcdy+XfXgLHxpzQ5v/1RXp/J0ll6GYRRmisy4BgnipXFPgtQLdSrytqLT3fl75XoyuzcbM7h6m7WiTEQGLeLah5qPesYdn+1CFAj+Kt3PWu/+GvSO8JCTdVA4IcKxXZgiVhZSAToNIE6gV2TQGqSRkZ2coHQ+I7AQkRH4Y/tYlseip1FxCGGDVIngEWAHWhk1AhgCSFiyxpwsGy1AXUAJtHIiJFrwEK3itY1oORsv1HycArq4K1YgOFhDkPSyIWdnNscm3xv9CLWPMMiuq7V1UxBjX6bCAoqATXJwV2TaFg4SFleMkVu+P6wMLEaGzqT6kssmUrHRtotZlUCDKJJI0au0U7ETTC0yMFCaX70rdzZrcePnB7sTdwz1XolDZ8tLe8MrsiMkr3VmauXD904Uf3sJCp3dBfjR08N9qlP3qtjX12e7x01rXxvP/OMXxqf2q/a03fOm2cBvGuLdW8fnyuMMSLiRMjD4sEoyCCTzhRT6VT+8IFIcenpqy8CQQvSEDigdNscJpMHezY3NyuOBfpuCI6HGfL3+4xiGyUlM07ulCbC+oz3mdAiA9oGHan4Ehf0AkFrYQQYdoSVS0BODi62eXIl+wdgD0cxMIk2FgAAAABJRU5ErkJggg==");
+  offset-path: path(
+    "M 90 60 L 90 80 L 110 100 L 130 80 L 130 60 L 90 20 L 50 60 L 50 80 L 90 120 L 90 140 L 90 120 L 70 100 L 50 120 L 50 150 L 90 180 L 130 150 L 130 120 L 110 100"
+  );
+  offset-rotate: 0deg;
+  offset-distance: 0;
+  animation: write var(--duration) linear infinite;
+}
+
+@keyframes write {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
