@@ -41,11 +41,11 @@ body {
     display: grid;
     grid-template-rows: 2rem 1fr 2rem;
     animation: front-flip 5s linear infinite;
-    transform: rotateZ(30deg) rotateY(0deg);
+    transform: rotateZ(32deg);
   }
 
   & .back {
-    transform: rotateZ(30deg) rotateY(180deg);
+    transform: rotateZ(32deg) rotateY(180deg);
     border: 0.2rem solid darkred;
 
     background: linear-gradient(
@@ -91,6 +91,6 @@ body {
 
 @keyframes flip {
   100% {
-    transform: rotateZ(30deg) rotateY(360deg);
+    transform: rotateY(360deg);
   }
 }
