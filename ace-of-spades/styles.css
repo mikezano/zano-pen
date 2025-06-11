@@ -16,13 +16,15 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  perspective: 1000px;
 }
 
 .card {
   width: 10rem;
   height: 14rem;
   position: relative;
-  perspective: 1000px;
+  transform-style: preserve-3d;
+  animation: flip 5s linear infinite;
 
   & .front,
   & .back {
@@ -33,7 +35,6 @@ body {
 
     border-radius: 0.5rem;
     box-shadow: 1rem 1rem 2rem hsla(0, 0%, 0%, 0.2);
-    /* animation: flip 5s linear infinite; */
   }
 
   & .front {
@@ -64,7 +65,6 @@ body {
 
     background-size: 2rem 2rem;
     animation: back-flip 5s linear infinite;
-    /* animation-delay: -2.5s; */
   }
 
   & .index {
@@ -89,14 +89,8 @@ body {
   }
 }
 
-@keyframes front-flip {
+@keyframes flip {
   100% {
     transform: rotateZ(30deg) rotateY(360deg);
-  }
-}
-
-@keyframes back-flip {
-  100% {
-    transform: rotateZ(30deg) rotateY(540deg);
   }
 }
