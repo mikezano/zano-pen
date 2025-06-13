@@ -41,11 +41,11 @@ body {
     display: grid;
     grid-template-rows: 2rem 1fr 2rem;
     animation: front-flip 5s linear infinite;
-    transform: rotateZ(32deg);
+    transform: rotateZ(36deg);
   }
 
   & .back {
-    transform: rotateZ(32deg) rotateY(180deg);
+    transform: rotateZ(36deg) rotateY(180deg);
     border: 0.2rem solid darkred;
 
     background: linear-gradient(
