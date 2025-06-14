@@ -40,7 +40,6 @@ body {
   & .front {
     display: grid;
     grid-template-rows: 2rem 1fr 2rem;
-    animation: front-flip 5s linear infinite;
     transform: rotateZ(36deg);
   }
 
@@ -64,7 +63,6 @@ body {
       );
 
     background-size: 2rem 2rem;
-    animation: back-flip 5s linear infinite;
   }
 
   & .index {
