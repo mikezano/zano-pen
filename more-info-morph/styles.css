@@ -1,14 +1,53 @@
-/* Styles for more-info-morph */
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+html {
+  display: grid;
+  place-content: center center;
+  height: 100vh;
 }
 
-h1 {
-  color: #333;
+#red,
+#blue {
+  position: absolute;
 }
 
-#more-info {
-  view-transition-name: morph;
+#red {
+  width: 100px;
+  height: 100px;
+  margin: -50px 0 0 -50px;
+  background-color: red;
+}
+#blue {
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  background-color: blue;
+  display: none;
+  view-transition-name: xyz;
+}
+
+::view-transition-new(xyz) {
+  animation: slide-in 0.5s ease-in-out;
+}
+::view-transition-old(xyz) {
+  animation: slide-out 0.5s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(200px) rotate(360deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(200px) rotate(360deg);
+  }
 }
