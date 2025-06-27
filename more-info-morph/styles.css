@@ -21,7 +21,7 @@ html {
   margin: -100px 0 0 -100px;
   background-color: blue;
   display: none;
-  /* view-transition-name: xyz; */
+  view-transition-name: xyz;
 }
 
 ::view-transition-new(xyz) {
@@ -33,9 +33,13 @@ html {
 
 @keyframes slide-in {
   from {
+    width: 100px;
+    height: 100px;
     transform: scale(1);
   }
   to {
+    width: 200px;
+    height: 200px;
     transform: scale(2);
   }
 }
