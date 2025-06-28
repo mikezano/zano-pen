@@ -12,34 +12,30 @@ html {
 #red {
   width: 100px;
   height: 100px;
-  margin: -50px 0 0 -50px;
+  /* margin: -50px 0 0 -50px; */
   background-color: red;
 }
 #blue {
-  width: 200px;
-  height: 200px;
-  margin: -100px 0 0 -100px;
+  width: 100px;
+  height: 100px;
+  /* margin: -100px 0 0 -100px; */
   background-color: blue;
   display: none;
   view-transition-name: xyz;
 }
 
 ::view-transition-new(xyz) {
-  animation: slide-in 0.5s ease-in-out;
+  animation: slide-in 0.5s ease-in-out forwards;
 }
 ::view-transition-old(xyz) {
-  animation: slide-out 0.5s ease-out;
+  animation: slide-out 0.5s ease-out forwards;
 }
 
 @keyframes slide-in {
   from {
-    width: 100px;
-    height: 100px;
     transform: scale(1);
   }
   to {
-    width: 200px;
-    height: 200px;
     transform: scale(2);
   }
 }
