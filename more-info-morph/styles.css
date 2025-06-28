@@ -1,12 +1,16 @@
-html {
+body {
   display: grid;
-  place-content: center center;
+  place-items: center;
   height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
 
 #red,
 #blue {
-  position: absolute;
+  grid-area: 1/1;
 }
 
 #red {
@@ -16,8 +20,8 @@ html {
   background-color: red;
 }
 #blue {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   /* margin: -100px 0 0 -100px; */
   background-color: blue;
   display: none;
@@ -33,17 +37,17 @@ html {
 
 @keyframes slide-in {
   from {
-    transform: scale(1);
+    transform: scale(0.5);
   }
   to {
-    transform: scale(2);
+    transform: scale(1);
   }
 }
 @keyframes slide-out {
   from {
-    transform: scale(2);
+    transform: scale(1);
   }
   to {
-    transform: scale(1);
+    transform: scale(0.5);
   }
 }
