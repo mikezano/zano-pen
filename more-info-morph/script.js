@@ -1,13 +1,21 @@
-document.getElementById("red").addEventListener('click',async()=>{
+document.getElementById("grid").addEventListener('click',async(el)=>{
   const transition = document.startViewTransition(()=>{
-      console.log("red")
-      const el = document.getElementById("blue");
-      el.style.display = "block";
+
+      //const el = document.getElementById("blue");
+      //el.style.display = "block";
+      if(el){
+        const color = getComputedStyle(el.target).backgroundColor;
+        const zoomEl = document.getElementById("zoom");
+        zoomEl.style.backgroundColor = color;
+        zoomEl.style.display = "block";
+        console.log(`color: ${color}, zoomEl: ${zoomEl}`);
+        console.log(zoomEl);
+      }
   })
   await transition.ready;
 })
 
-document.getElementById("blue").addEventListener('click', async(e)=>{
+document.getElementById("zoom").addEventListener('click', async(e)=>{
   const transition = document.startViewTransition(()=>{
     e.target.style.display = "none";
   });

@@ -1,4 +1,4 @@
-body {
+/* body {
   display: grid;
   place-items: center;
   height: 100vh;
@@ -6,9 +6,9 @@ body {
   padding: 0;
   margin: 0;
   position: relative;
-}
+} */
 
-#red,
+/* #red,
 #blue {
   grid-area: 1/1;
 }
@@ -16,26 +16,72 @@ body {
 #red {
   width: 100px;
   height: 100px;
-  /* margin: -50px 0 0 -50px; */
   background-color: red;
-}
-#blue {
+} */
+/* #blue {
   width: 200px;
   height: 200px;
-  /* margin: -100px 0 0 -100px; */
   background-color: blue;
   display: none;
   view-transition-name: xyz;
+
+  } */
+
+body {
+  display: grid;
+  place-content: center;
 }
 
-::view-transition-new(xyz) {
-  animation: slide-in 0.5s ease-in-out forwards;
-}
-::view-transition-old(xyz) {
-  animation: slide-out 0.5s ease-out forwards;
+#grid,
+#zoom {
+  grid-area: 1/1;
 }
 
-@keyframes slide-in {
+#grid {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  border: 1px solid red;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+}
+
+#grid div:nth-child(1) {
+  background-color: #ffd1dc;
+}
+#grid div:nth-child(2) {
+  background-color: #c1f0f6;
+}
+#grid div:nth-child(3) {
+  background-color: #ffe8a1;
+}
+#grid div:nth-child(4) {
+  background-color: #c3fbd8;
+}
+#grid div:nth-child(5) {
+  background-color: #eac8ff;
+}
+#grid div:nth-child(6) {
+  background-color: #fbdcdc;
+}
+
+#zoom {
+  display: none;
+  width: 500px;
+  height: 500px;
+  background-color: orange;
+  view-transition-name: zoom;
+}
+
+::view-transition-new(zoom) {
+  animation: zoom-in 0.5s ease-in-out forwards;
+}
+::view-transition-old(zoom) {
+  animation: zoom-out 0.5s ease-out forwards;
+}
+
+@keyframes zoom-in {
   from {
     transform: scale(0.5);
   }
@@ -43,7 +89,7 @@ body {
     transform: scale(1);
   }
 }
-@keyframes slide-out {
+@keyframes zoom-out {
   from {
     transform: scale(1);
   }
