@@ -10,6 +10,7 @@ document.getElementById("grid").addEventListener('click',async(el)=>{
         zoomEl.style.display = "block";
         console.log(`color: ${color}, zoomEl: ${zoomEl}`);
         console.log(zoomEl);
+        console.log(el.target.getBoundingClientRect());
       }
   })
   await transition.ready;
@@ -21,3 +22,4 @@ document.getElementById("zoom").addEventListener('click', async(e)=>{
   });
   await transition.ready;
 });
+
