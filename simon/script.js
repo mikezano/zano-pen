@@ -38,5 +38,49 @@ async function playSequence(sequence) {
     }
 }
 
-const sequence = generateRandomSequence(10);
-playSequence(sequence);
+const enableClicks = () => {
+    segment.forEach((el, index) => {
+        el.addEventListener('click', async () => {
+            playTone(523.25 + index * 110); // C5, D5, E5, F5
+            await brightenSegment(index);
+
+        });
+    });
+};
+
+function playTone(freq, duration = 2000) {
+  const ctx = new AudioContext();
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+
+  osc.type = 'triangle';
+  osc.frequency.value = freq;
+
+  //osc.connect(gain);
+ // gain.connect(ctx.destination);
+
+//   osc.start();
+//   gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration / 1000);
+//   osc.stop(ctx.currentTime + duration / 1000);
+
+  //*********************************************/
+  // Fade out effect to simulate Simon tone
+  gain.gain.setValueAtTime(0.4, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration / 1000);
+
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+
+  osc.start();
+  osc.stop(ctx.currentTime + duration / 1000);
+}
+
+// Example: Play blue tone
+enableClicks()
+//playTone(523.25); // C5
+
+// const sequence = generateRandomSequence(10);
+// playSequence(sequence);
+
+
+
