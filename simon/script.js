@@ -52,8 +52,9 @@ function playTone(freq, duration = 2000) {
   const ctx = new AudioContext();
   const osc = ctx.createOscillator();
   const gain = ctx.createGain();
+  gain.gain.value = 0.1; // Initial volume
 
-  osc.type = 'triangle';
+  osc.type = 'square';
   osc.frequency.value = freq;
 
   //osc.connect(gain);
