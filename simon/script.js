@@ -16,11 +16,11 @@ const brightenSegment = (index) =>{
     return new Promise((resolve)=>{
         const el = segment[index];
         el.classList.add('brighten');
-        playTone(523.25);
+        playTone(523.25 + index * 110);
         setTimeout(() => {
             el.classList.remove('brighten');
             resolve();
-        }, 1000);
+        }, 500);
     })
 }
 
@@ -77,12 +77,19 @@ function playTone(freq, duration = 2000) {
   osc.stop(ctx.currentTime + duration / 1000);
 }
 
+
+document.getElementById('start').addEventListener('click', () => {
+    console.log('Start button clicked');
+    enableClicks();
+    const sequence = generateRandomSequence(10);
+    playSequence(sequence);
+});
 // Example: Play blue tone
 //enableClicks()
 //playTone(523.25); // C5
 
-const sequence = generateRandomSequence(10);
-playSequence(sequence);
+//const sequence = generateRandomSequence(10);
+//playSequence(sequence);
 
 
 
