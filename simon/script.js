@@ -16,6 +16,7 @@ const brightenSegment = (index) =>{
     return new Promise((resolve)=>{
         const el = segment[index];
         el.classList.add('brighten');
+        playTone(523.25);
         setTimeout(() => {
             el.classList.remove('brighten');
             resolve();
@@ -77,11 +78,11 @@ function playTone(freq, duration = 2000) {
 }
 
 // Example: Play blue tone
-enableClicks()
+//enableClicks()
 //playTone(523.25); // C5
 
-// const sequence = generateRandomSequence(10);
-// playSequence(sequence);
+const sequence = generateRandomSequence(10);
+playSequence(sequence);
 
 
 

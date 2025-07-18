@@ -27,7 +27,8 @@ body {
   border-radius: 50%;
 }
 #center,
-#simon {
+#simon,
+#start {
   grid-area: 1/1;
 }
 #simon {
@@ -87,4 +88,10 @@ body {
       hsla(210, 100%, 40%, 0.8) 100%
     );
   }
+}
+
+#start {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
 }
