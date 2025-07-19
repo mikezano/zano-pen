@@ -55,7 +55,7 @@ function playTone(freq, duration = 2000) {
   const gain = ctx.createGain();
   gain.gain.value = 0.1; // Initial volume
 
-  osc.type = 'square';
+  osc.type = 'sawtooth';
   osc.frequency.value = freq;
 
   //osc.connect(gain);
