@@ -97,4 +97,5 @@ body {
   position: absolute;
   border-radius: 50%;
   background-color: white;
+  border: 0.1rem solid white;
 }
