@@ -81,7 +81,7 @@ function playTone(freq, duration = 2000) {
 document.getElementById('start').addEventListener('click', () => {
     console.log('Start button clicked');
     enableClicks();
-    const sequence = generateRandomSequence(10);
+    const sequence = generateRandomSequence(4);
     playSequence(sequence);
 });
 // Example: Play blue tone
