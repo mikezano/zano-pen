@@ -3,15 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('simon initialized');
 });
 
-// const colors = new Map(
-//     [1, 'yellow'], 
-//     [2, 'blue'],
-//     [3, 'red'],
-//     [4, 'green']
-// );
+let sequence = [];
 
 const segment = document.querySelectorAll('#simon > div');
-console.log(segment);
 const brightenSegment = (index) =>{
     return new Promise((resolve)=>{
         const el = segment[index];
@@ -81,7 +75,7 @@ function playTone(freq, duration = 2000) {
 document.getElementById('start').addEventListener('click', () => {
     console.log('Start button clicked');
     enableClicks();
-    const sequence = generateRandomSequence(4);
+    sequence = generateRandomSequence(4);
     playSequence(sequence);
 });
 // Example: Play blue tone
