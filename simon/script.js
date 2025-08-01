@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let sequence = [];
+let sequenceLength = 3;
 
 const segment = document.querySelectorAll('#simon > div');
 const brightenSegment = (index) =>{
@@ -35,7 +36,8 @@ async function playSequence(sequence) {
 
 const enableClicks = () => {
     segment.forEach((el, index) => {
-        el.addEventListener('click', async () => {
+        el.addEventListener('click', async (el) => {
+            //if this click is not part of the sequence, game over
             playTone(523.25 + index * 110); // C5, D5, E5, F5
             await brightenSegment(index);
 
@@ -75,7 +77,7 @@ function playTone(freq, duration = 2000) {
 document.getElementById('start').addEventListener('click', () => {
     console.log('Start button clicked');
     enableClicks();
-    sequence = generateRandomSequence(4);
+    sequence = generateRandomSequence(sequenceLength);
     playSequence(sequence);
 });
 // Example: Play blue tone
