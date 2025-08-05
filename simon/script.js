@@ -34,12 +34,38 @@ async function playSequence(sequence) {
     }
 }
 
+const handlePlayerClick = async (index) => {
+    if (isPlayingSequence) return;
+
+    playTone(523.25 + index * 110);
+    await brightenSegment(index);
+    playerSequence.push(index);
+
+    // Check player's input against the sequence so far
+    for (let i = 0; i < playerSequence.length; i++) {
+        if (playerSequence[i] !== sequence[i]) {
+            alert('Game Over!');
+            resetGame();
+            return;
+        }
+    }
+
+    // If full correct sequence guessed
+    if (playerSequence.length === sequence.length) {
+        level++;
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        generateNextInSequence();
+        playSequence();
+    }
+};
+
 const enableClicks = () => {
     segment.forEach((el, index) => {
-        el.addEventListener('click', async (el) => {
+        el.addEventListener('click', async () => {
             //if this click is not part of the sequence, game over
             playTone(523.25 + index * 110); // C5, D5, E5, F5
             await brightenSegment(index);
+            handlePlayerClick(index);
 
         });
     });
