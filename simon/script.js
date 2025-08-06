@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let sequence = [];
 let sequenceLength = 3;
+let level - 0;
 let playerSequence = [];
 
 const segment = document.querySelectorAll('#simon > div');
