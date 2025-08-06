@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let sequence = [];
 let sequenceLength = 3;
+let playerSequence = [];
 
 const segment = document.querySelectorAll('#simon > div');
 const brightenSegment = (index) =>{
