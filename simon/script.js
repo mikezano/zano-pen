@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let sequence = [];
 let sequenceLength = 3;
-let level - 0;
+let level = 0;
 let playerSequence = [];
+let isPlayingSequence = false;
 
 const segment = document.querySelectorAll('#simon > div');
 const brightenSegment = (index) =>{
@@ -30,10 +31,13 @@ const generateRandomSequence = (length) =>{
 }
 
 async function playSequence(sequence) {
+    isPlayingSequence = true;
     for (const index of sequence) {
         await brightenSegment(index);
         await new Promise(resolve => setTimeout(resolve, 200));
     }
+    isPlayingSequence = false;
+    playerSequence = []; // Reset player sequence after playing the sequence
 }
 
 const handlePlayerClick = async (index) => {
@@ -65,13 +69,19 @@ const enableClicks = () => {
     segment.forEach((el, index) => {
         el.addEventListener('click', async () => {
             //if this click is not part of the sequence, game over
-            playTone(523.25 + index * 110); // C5, D5, E5, F5
-            await brightenSegment(index);
+           // playTone(523.25 + index * 110); // C5, D5, E5, F5
+//await brightenSegment(index);
             handlePlayerClick(index);
 
         });
     });
 };
+
+function resetGame(){
+    sequence = [];
+    playerSequence = [];
+    level = 0;
+}
 
 function playTone(freq, duration = 2000) {
   const ctx = new AudioContext();
