@@ -59,6 +59,8 @@ const handlePlayerClick = async (index) => {
     // If full correct sequence guessed
     if (playerSequence.length === sequence.length) {
         level++;
+        var levelEl = document.getElementById('center');
+        levelEl.textContent = `${level}`;
         await new Promise(resolve => setTimeout(resolve, 1000));
         generateNextInSequence();
         playSequence();
