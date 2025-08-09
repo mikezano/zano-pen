@@ -6,6 +6,7 @@ export class Simon {
   #sequenceLength = 3;
   #isPlayingSequence = false;
   #segments = null;
+  #levelEl = null;
 
   constructor() {}
 
@@ -35,7 +36,6 @@ export class Simon {
 
     // If full correct sequence guessed
     if (this.#playerSequence.length === this.#sequence.length) {
-      var levelEl = document.getElementById("center");
       levelEl.textContent = `${++this.#level}`;
       await new Promise((resolve) => setTimeout(resolve, 1000));
       this.generateNextSequence(this.#sequenceLength++);
@@ -86,7 +86,9 @@ export class Simon {
     });
   }
 
-  start() {
+  start(levelEl) {
+    this.#levelEl = levelEl;
+    levelEl.textContent = this.#level;
     this.generateNextSequence(this.#sequenceLength);
     console.log("New sequence generated:", this.#sequence);
     this.playSequence();
