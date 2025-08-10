@@ -23,6 +23,10 @@ export class Simon {
     this.#startEl.classList.remove("enabled");
   }
 
+  hasSegments() {
+    return this.#segments !== null && this.#segments.length > 0;
+  }
+
   async handlePlayerClick(index) {
     if (this.#isPlayingSequence || this.#isPlayingAudio) return;
     this.#isPlayingAudio = true;
@@ -94,6 +98,8 @@ export class Simon {
 
   start(levelEl, startEl) {
     this.#levelEl = levelEl;
+    this.#level = 1;
+    console.log("Starting game at level:", this.#level);
     levelEl.textContent = this.#level;
     this.#startEl = startEl;
     this.#startEl.classList.add("enabled");
