@@ -5,6 +5,7 @@ export class Simon {
   #level = 1;
   #sequenceLength = 3;
   #isPlayingSequence = false;
+  #isPlayingAudio = false;
   #segments = null;
   #levelEl = null;
   #startEl = null;
@@ -17,12 +18,14 @@ export class Simon {
     this.#level = "-";
     this.#sequenceLength = 3;
     this.#isPlayingSequence = false;
+    this.#isPlayingAudio = false;
     this.#levelEl.textContent = this.#level;
     this.#startEl.classList.remove("enabled");
   }
 
   async handlePlayerClick(index) {
-    if (this.#isPlayingSequence) return;
+    if (this.#isPlayingSequence || this.#isPlayingAudio) return;
+    this.#isPlayingAudio = true;
 
     Audio.playTone(index);
     await this.brightenSegment(index);
@@ -44,12 +47,14 @@ export class Simon {
       this.generateNextSequence(this.#sequenceLength++);
       this.playSequence();
     }
+    this.#isPlayingAudio = false;
   }
 
   enableClicks(segments) {
     this.#segments = segments;
     this.#segments.forEach((el, index) => {
       el.addEventListener("click", async () => {
+        console.log(`Segment ${index} clicked`);
         await this.handlePlayerClick(index);
       });
     });
