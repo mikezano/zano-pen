@@ -5,5 +5,6 @@ document.getElementById("start").addEventListener("click", () => {
   const segments = document.querySelectorAll("#simon > div");
   simon.enableClicks(segments);
   const levelEl = document.getElementById("level");
-  simon.start(levelEl);
+  const startEl = document.getElementById("start");
+  simon.start(levelEl, startEl);
 });

@@ -101,12 +101,28 @@ body {
 #start {
   width: 20px;
   height: 20px;
-
   border-radius: 50%;
-  background-color: white;
-  border: 0.1rem solid white;
+  background-color: darkgray;
+  border: 0.1rem solid gray;
+  background-image: url("on-off.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+#start:hover:not(.enabled) {
+  cursor: pointer;
+  filter: brightness(1.5);
+}
+#start.enabled {
+  background-color: greenyellow;
+  border: 0.1rem solid green;
 }
 
+#display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #title,
 #level {
   color: white;

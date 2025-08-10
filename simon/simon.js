@@ -7,15 +7,18 @@ export class Simon {
   #isPlayingSequence = false;
   #segments = null;
   #levelEl = null;
+  #startEl = null;
 
   constructor() {}
 
   resetGame() {
     this.#sequence = [];
     this.#playerSequence = [];
-    this.#level = 1;
+    this.#level = "-";
     this.#sequenceLength = 3;
     this.#isPlayingSequence = false;
+    this.#levelEl.textContent = this.#level;
+    this.#startEl.classList.remove("enabled");
   }
 
   async handlePlayerClick(index) {
@@ -36,11 +39,9 @@ export class Simon {
 
     // If full correct sequence guessed
     if (this.#playerSequence.length === this.#sequence.length) {
-      levelEl.textContent = `${++this.#level}`;
+      this.#levelEl.textContent = `${++this.#level}`;
       await new Promise((resolve) => setTimeout(resolve, 1000));
       this.generateNextSequence(this.#sequenceLength++);
-      console.log("New sequence generated:", this.#sequence);
-      console.log(typeof obj);
       this.playSequence();
     }
   }
@@ -86,9 +87,11 @@ export class Simon {
     });
   }
 
-  start(levelEl) {
+  start(levelEl, startEl) {
     this.#levelEl = levelEl;
     levelEl.textContent = this.#level;
+    this.#startEl = startEl;
+    this.#startEl.classList.add("enabled");
     this.generateNextSequence(this.#sequenceLength);
     console.log("New sequence generated:", this.#sequence);
     this.playSequence();
