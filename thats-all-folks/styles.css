@@ -42,4 +42,15 @@ h1 {
   & .message {
     color: white;
   }
+
+  & svg {
+    border: 1px solid black;
+  }
+  & text {
+    fill: white;
+    font-size: 0.6rem;
+  }
+  & path {
+    opacity: 0;
+  }
 }
