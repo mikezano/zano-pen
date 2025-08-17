@@ -38,4 +38,8 @@ h1 {
     border-radius: 50%;
     background-color: blue;
   }
+
+  & .message {
+    color: white;
+  }
 }
