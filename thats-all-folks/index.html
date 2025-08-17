@@ -11,15 +11,13 @@
       <div class="layer radial-circles"></div>
       <div class="layer blue-circle"></div>
       <svg class="layer" viewBox="0 0 100 100">
-        <!-- Circle path (invisible, only used to guide text) -->
         <path
           id="circlePath"
+          display="none"
           d="M 50 60
              m -40, 0
              a 40,10 0 1,1 80,0"
         />
-
-        <!-- Text following the path -->
         <text>
           <textPath href="#circlePath" startOffset="10%">
             That's All Folks!
@@ -27,7 +25,5 @@
         </text>
       </svg>
     </main>
-
-    <script src="script.js"></script>
   </body>
 </html>

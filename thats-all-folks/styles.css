@@ -10,10 +10,6 @@ body {
   justify-content: center;
 }
 
-h1 {
-  color: #333;
-}
-
 #container {
   display: grid;
   place-content: center;
@@ -59,13 +55,8 @@ h1 {
     color: white;
   }
 
-  & svg {
-  }
   & text {
     fill: white;
     font-size: 0.6rem;
-  }
-  & path {
-    opacity: 0;
   }
 }
