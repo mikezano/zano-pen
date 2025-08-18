@@ -23,30 +23,32 @@ body {
   }
 
   & .radial-circles {
-    width: 400px;
-    height: 400px;
+    width: inherit;
+    height: inherit;
+    --inner-red: hsla(0, 80%, 45%);
+    --outer-red: hsla(0, 80%, 25%);
 
     background: radial-gradient(
         circle at center,
         transparent 40%,
-        hsla(0, 80%, 45%, 1) 40%,
-        hsla(0, 80%, 25%, 1) 50%,
-        hsla(0, 80%, 45%, 1) 50%,
-        hsla(0, 80%, 25%, 1) 60%,
-        hsla(0, 80%, 45%, 1) 60%,
-        hsla(0, 80%, 25%, 1) 70%,
-        hsla(0, 80%, 45%, 1) 70%,
-        hsla(0, 80%, 25%, 1) 80%,
-        hsla(0, 80%, 45%, 1) 80%,
-        hsla(0, 80%, 25%, 1) 90%,
-        hsla(0, 80%, 25%, 1) 100%
+        var(--inner-red) 40%,
+        var(--outer-red) 50%,
+        var(--inner-red) 50%,
+        var(--outer-red) 60%,
+        var(--inner-red) 60%,
+        var(--outer-red) 70%,
+        var(--inner-red) 70%,
+        var(--outer-red) 80%,
+        var(--inner-red) 80%,
+        var(--outer-red) 90%,
+        var(--outer-red) 100%
       ),
-      hsla(0, 80%, 25%, 1);
+      var(--outer-red);
   }
 
   & .blue-circle {
-    width: 200px;
-    height: 200px;
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
     background-color: hsla(220, 60%, 25%, 1);
   }
