@@ -1,18 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 
-body {
-  font-family: "Pacifico", cursive;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
-}
-
 #container {
+  font-family: "Pacifico", cursive;
   display: grid;
-  place-content: center;
   width: 400px;
   height: 400px;
-  border: 0.4rem solid #322;
 
   & .layer {
     grid-area: 1/1;
