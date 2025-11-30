@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 20px;
   font-family: Arial, sans-serif;
+  background-color: #333;
 }
 
 h1 {
@@ -12,25 +13,33 @@ h1 {
   display: grid;
   grid-template-rows: 50px 1fr, 50px;
   grid-template-columns: 50px 1fr 50px;
-  width: 300px;
-
+  width: 550px;
+  background-color: gray;
   border: 1px solid black;
 }
 .corner {
   width: 50px;
   height: 50px;
-  background-color: red;
+  background-color: #333;
 }
 .corner.top-left {
-  border-radius: 50%;
+  clip-path: circle(100% at 0% 0%);
 }
-
+.corner.top-right {
+  clip-path: circle(100% at 100% 0%);
+}
+.corner.bottom-left {
+  clip-path: circle(100% at 0% 100%);
+}
+.corner.bottom-right {
+  clip-path: circle(100% at 100% 100%);
+}
 .lights-top,
 .lights-bottom,
 .lights-left,
 .lights-right {
   display: flex;
-  background-color: green;
+  background-color: gray;
 }
 
 .lights-left,
@@ -54,25 +63,27 @@ h1 {
 .lights-bottom .light:nth-child(3n),
 .lights-left .light:nth-child(3n),
 .lights-right .light:nth-child(3n) {
-  animation: pulse 0.9s linear infinite;
+  animation: pulse 0.6s linear infinite;
 }
 .lights-top .light:nth-child(3n + 1),
 .lights-bottom .light:nth-child(3n + 1),
 .lights-left .light:nth-child(3n + 1),
 .lights-right .light:nth-child(3n + 1) {
-  animation: pulse 0.9s 0.3s linear infinite;
+  animation: pulse 0.6s 0.2s linear infinite;
 }
 .lights-top .light:nth-child(3n + 2),
 .lights-bottom .light:nth-child(3n + 2),
 .lights-left .light:nth-child(3n + 2),
 .lights-right .light:nth-child(3n + 2) {
-  animation: pulse 0.9s 0.6s linear infinite;
+  animation: pulse 0.6s 0.4s linear infinite;
 }
 @keyframes pulse {
-  50% {
+  10%,
+  33% {
     background-color: hsl(210, 100%, 80%);
   }
-  51% {
+  0%,
+  44% {
     background-color: transparent;
   }
 }
