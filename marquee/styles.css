@@ -1,8 +1,16 @@
-/* Styles for marquee */
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
+:root {
+  --marquee-bg: hsla(355, 80%, 30%, 1);
+  --marquee-light: hsla(48, 100%, 75%, 1);
+  --marquee-light-dim: hsla(30, 90%, 55%, 1);
+}
 body {
   margin: 0;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  font-family: "Limelight", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   background-color: #333;
 }
 
@@ -14,8 +22,7 @@ h1 {
   grid-template-rows: 50px 1fr, 50px;
   grid-template-columns: 50px 1fr 50px;
   width: 550px;
-  background-color: gray;
-  border: 1px solid black;
+  background-color: var(--marquee-bg);
 }
 .corner {
   width: 50px;
@@ -39,9 +46,38 @@ h1 {
 .lights-left,
 .lights-right {
   display: flex;
-  background-color: gray;
+  background-color: var(--marquee-bg);
 }
 
+.marquee-content {
+  place-content: center center;
+  display: grid;
+  font-size: 2rem;
+  background: radial-gradient(
+      circle 50px at 100% 0px,
+      var(--marquee-bg) 50%,
+      transparent 50%
+    ),
+    radial-gradient(circle 50px at 0 0, var(--marquee-bg) 50%, transparent 50%),
+    radial-gradient(
+      circle 50px at 0 100%,
+      var(--marquee-bg) 50%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle 50px at 100% 100%,
+      var(--marquee-bg) 50%,
+      transparent 50%
+    ),
+    hsla(48, 50%, 92%, 1);
+
+  /* background: radial-gradient(
+      circle 50px at 0 0,
+      var(--marquee-bg) 50%,
+      white 50%
+    ),
+    radial-gradient(circle 100px at 200px 0px, red, yellow); */
+}
 .lights-left,
 .lights-right {
   flex-direction: column;
@@ -54,8 +90,9 @@ h1 {
 }
 
 .light {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
   border-radius: 50%;
 }
 
@@ -80,10 +117,10 @@ h1 {
 @keyframes pulse {
   10%,
   33% {
-    background-color: hsl(210, 100%, 80%);
+    background-color: hsla(48, 100%, 75%, 1);
   }
   0%,
   44% {
-    background-color: transparent;
+    background-color: hsla(48, 50%, 35%, 0.5);
   }
 }
