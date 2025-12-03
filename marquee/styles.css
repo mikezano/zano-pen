@@ -2,6 +2,8 @@
 
 :root {
   --marquee-bg: hsla(355, 80%, 30%, 1);
+  --marquee-content: hsla(48, 50%, 72%, 1);
+  --marquee-content-light: hsla(48, 50%, 92%, 1);
   --marquee-light: hsla(48, 100%, 75%, 1);
   --marquee-light-dim: hsla(30, 90%, 55%, 1);
 }
@@ -52,7 +54,7 @@ h1 {
 .marquee-content {
   place-content: center center;
   display: grid;
-  font-size: 2rem;
+  font-size: 2.3rem;
   background: radial-gradient(
       circle 50px at 100% 0px,
       var(--marquee-bg) 50%,
@@ -69,6 +71,7 @@ h1 {
       var(--marquee-bg) 50%,
       transparent 50%
     ),
+    radial-gradient(var(--marquee-content-light), var(--marquee-content)),
     hsla(48, 50%, 92%, 1);
 
   /* background: radial-gradient(
