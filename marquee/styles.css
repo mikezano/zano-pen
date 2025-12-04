@@ -16,9 +16,6 @@ body {
   background-color: #333;
 }
 
-h1 {
-  color: #333;
-}
 .marquee {
   display: grid;
   grid-template-rows: 50px 1fr, 50px;
